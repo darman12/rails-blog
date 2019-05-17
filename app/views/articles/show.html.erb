@@ -9,16 +9,7 @@
 </p>
 
 <h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-    <p>
-        <b>Commenter:</strong>
-        <%= comment.commenter %>
-    </p>
-    <p>
-        <b>Comment:</b>
-        <%= comment.body %>
-    </p>
-<% end %>
+<%= render @article.comments %>
 
 <h2>Add a comment:</h2>
 <%= form_with(model: [ @article, @article.comments.build ],
