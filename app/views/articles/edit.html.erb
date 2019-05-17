@@ -1,6 +1,6 @@
-<link rel="stylesheet" type="text/css" href="..assets/stylesheets/styles.css">
-<h1>New Article</h1>
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+<h1>Edit article</h1>
+
+<%= form_with(model: @article, local: true) do |form| %>
 
     <% if @article.errors.any? %>
         <div id="error_explanation">
@@ -9,12 +9,12 @@
             </h2>
             <ul>
                 <% @article.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+                    <li><%= msg %></li>
                 <% end %>
             </ul>
         </div>
     <% end %>
-    
+
     <p>
         <%= form.label :title %><br>
         <%= form.text_field :title %>
@@ -28,6 +28,7 @@
     <p>
         <%= form.submit %>
     </p>
+
 <% end %>
 
-<%= link_to 'Back', articles_path %>
+<% link_to 'Back', articles_path %>
